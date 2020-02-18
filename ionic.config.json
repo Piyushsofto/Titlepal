@@ -1,0 +1,7 @@
+{
+  "name": "Titlepal",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,68 @@
+<app-header></app-header>
+<ion-content *ngIf="isRegisterFirstPage">
+    <div class="ion-padding">
+        <div class="row">
+            <ion-input type="number" max="10"></ion-input> .
+            <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+            <ion-label class="ion-padding">
+                <span class="title-default">Step 1:Create an Account</span>
+            </ion-label>
+        </div>
+        <div class="row" class="ion-padding">
+            <ion-label>
+                <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 15px;">
+                    To apply for TitlePal,you must first create an account.it's free and only requires name and email.
+                </span>
+            </ion-label>
+        </div>
+        <ion-label>
+            <span><b class="ion-padding">First Name:</b></span>
+            <ion-row class="ion-padding">
+                <input type="text" class="textbox">
+            </ion-row>
+            <span><b class="ion-padding">Last Name:</b></span>
+            <ion-row class="ion-padding">
+                <input type="text" class="textbox">
+            </ion-row>
+            <span><b class="ion-padding">Email Address:</b></span>
+            <ion-row class="ion-padding">
+                <input type="text" class="textbox">
+            </ion-row>
+        </ion-label>
+        <ion-footer no-border style="text-align: center;">
+            <ion-button color="success" (click)="onNextRegistrationStep()">Next Step</ion-button>
+        </ion-footer>
+    </div>
+</ion-content>
+
+<ion-content *ngIf="isRegisterSecondPage">
+    <div class="ion-padding">
+        <div class="row">
+            <ion-input type="number" max="10"></ion-input> .
+            <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+            <ion-label class="">
+                <span class="title-default">Step 2: Set your password</span>
+            </ion-label>
+        </div>
+        <div class="row" class="ion-padding">
+            <ion-label>
+                <span style="text-align: justify; font-size: 15px;">
+                    Next, set your password.
+                </span>
+            </ion-label>
+        </div>
+        <ion-label>
+            <span><b class="ion-padding">Password:</b></span>
+            <ion-row class="ion-padding">
+                <input type="text" class="textbox">
+            </ion-row>
+            <span><b class="ion-padding">Confirm Password::</b></span>
+            <ion-row class="ion-padding">
+                <input type="text" class="textbox">
+            </ion-row>
+        </ion-label>
+        <ion-footer no-border style="text-align: center;">
+            <ion-button color="success" (click)="onSearchCar()">Next Step</ion-button>
+        </ion-footer>
+    </div>
+</ion-content>

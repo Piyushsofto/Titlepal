@@ -1,0 +1,113 @@
+<app-header></app-header>
+<ion-content *ngIf="isLicense">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input> .
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 5: VIN Liens Check</b></span>
+      </ion-label>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-label>
+        <ion-row>
+          <span class="ion-padding"
+            style="color:lightgreen; line-height: 17px; font-family: serif; font-size: 15px;"><b>YOU ARE
+              CLEAR</b>
+          </span>
+        </ion-row>
+        <span style="line-height: 17px; font-family: serif; font-size: 15px;">Great work! You have a
+          free and clear
+          title and
+          you’re ready to get money!
+        </span>
+        <ion-row class="ion-padding">
+          How much do you want?
+        </ion-row>
+      </ion-label>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-button style="width: 50%;" color="success" (click)="onLicenseCheck()">Next Step</ion-button>
+    </ion-footer>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="isCheckLicense">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input> .
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 5: VIN Liens Check</b></span>
+      </ion-label>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-label>
+        <ion-row>
+          <span class="ion-padding"
+            style="color:lightgreen; line-height: 17px; font-family: serif; font-size: 15px;"><b>HOUSTON, WE HAVE A
+              PROBLEM</b>
+          </span>
+        </ion-row>
+        <span style="line-height: 17px; font-family: serif; font-size: 15px;">Our records show that your car currently
+          has a lien
+          against the title. While we can’t automatically
+          approve you, our agents are live and ready to help
+          sort out your title so you can get paid.
+        </span>
+        <ion-row class="ion-padding">
+          How much do you want?
+        </ion-row>
+      </ion-label>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-row>
+        <ion-button style="width: 50%;" color="success" (click)="onCallSupport()">Call Support</ion-button>
+      </ion-row>
+      <ion-row>
+        <ion-button style="width: 50%;" color="success">Live Text Support</ion-button>
+      </ion-row>
+    </ion-footer>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="isApprove">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input> .
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 5: Congrats!</b></span>
+      </ion-label>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-card>
+        <!-- <ion-card-header>
+                                      <ion-card-title style="font-size:18px;">Car Details</ion-card-title>
+                                  </ion-card-header> -->
+
+        <ion-card-content class="cardStyle">
+          <ion-row>
+            <ion-label>
+              <span style="font-weight: bolder; font-size: 20px; color: lightgreen;">YOU ARE APPROVED</span>
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label>
+              <span style="font-weight: bolder; font-size: 20px; color: lightgreen;">$1750.00</span>
+            </ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label>
+              <span style="font-size:bolder;">Ready to send today
+                pending inspection!</span>
+            </ion-label>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-button style="width: 50%;" color="success" (click)="onGetFunded()">GET FUNDED!</ion-button>
+    </ion-footer>
+  </div>
+</ion-content>

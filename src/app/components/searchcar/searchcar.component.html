@@ -1,0 +1,129 @@
+<app-header></app-header>
+<ion-content *ngIf="isTag">
+    <div class="ion-padding">
+        <div class="row">
+            <ion-input type="number" max="10"></ion-input> .
+            <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+            <ion-label class="ion-padding">
+                <span><b class="title-default">Step 3: Enter your Tag Number</b></span>
+            </ion-label>
+        </div>
+        <div class="row" class="ion-padding">
+            <ion-label>
+                <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 15px;">
+                    TItlePal requires that your car have a valid license
+                    plate (tag). Enter your tag and state below and
+                    we’ll search for your car:
+                </span>
+            </ion-label>
+        </div>
+        <ion-label>
+            <form [formGroup]="searchCarForm">
+                <span><b class="ion-padding">Tag Number:</b></span>
+                <ion-row class="ion-padding">
+                    <input type="text" class="textbox" [formControl]="searchCarForm.controls['reg']">
+                </ion-row>
+                <span><b class="ion-padding">State:</b></span>
+                <ion-row class="ion-padding">
+                    <!-- <input type="text" class="textbox"> -->
+                    <select id="cars" class="textbox" [formControl]="searchCarForm.controls['state']">
+                        <option value="Oklohama">Oklohama</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="California">California</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="New York">New York</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="Missori">Missori</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="Ohio">Ohio</option>
+                    </select>
+                </ion-row>
+            </form>
+        </ion-label>
+        <ion-footer no-border style="text-align: center;">
+            <ion-button style="width: 50%;" color="success" (click)="onSearchVehicle()">Next Step</ion-button>
+            <a href="" type="string">
+                <ul style="font-size: 17px; font-family: serif;">My car doesn’t have a tag</ul>
+            </a>
+        </ion-footer>
+    </div>
+</ion-content>
+
+<ion-content *ngIf="isCarResponse">
+    <div class="ion-padding">
+        <div class="row">
+            <ion-input type="number" max="10"></ion-input>
+            <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+            <ion-label class="ion-padding">
+                <span><b class="title-default">Step 4: Confirm Your Car</b></span>
+            </ion-label>
+        </div>
+        <div class="row" class="ion-padding">
+            <ion-label>
+                <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 15px;">
+                    Is the information below correct? Is this your car?
+                </span>
+            </ion-label>
+        </div>
+        <div class="row">
+            <ion-card>
+                <ion-card-content class="cardStyle">
+                    <ion-row>
+                        <div class="col-6">
+                            <ion-label>
+                                <span><b>Make:</b></span>
+                            </ion-label>
+                        </div>
+                        <div class="col-6">
+                            <ion-label>
+                                <span>Hyundai</span>
+                            </ion-label>
+                        </div>
+                    </ion-row>
+                    <ion-row>
+                        <div class="col-6">
+                            <ion-label>
+                                <span><b>Model:</b></span>
+                            </ion-label>
+                        </div>
+                        <div class="col-6">
+                            <ion-label>
+                                <span>Genesis G80 Sport</span>
+                            </ion-label>
+                        </div>
+                    </ion-row>
+                    <ion-row>
+                        <div class="col-6">
+                            <ion-label>
+                                <span><b>Year:</b></span>
+                            </ion-label>
+                        </div>
+                        <div class="col-6">
+                            <ion-label>
+                                <span>2018</span>
+                            </ion-label>
+                        </div>
+                    </ion-row>
+                    <ion-row>
+                        <div class="col-6">
+                            <ion-label>
+                                <span><b>VIN:</b></span>
+                            </ion-label>
+                        </div>
+                        <div class="col-6">
+                            <ion-label>
+                                <span>KMHGN4JB6JU222135</span>
+                            </ion-label>
+                        </div>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <ion-footer no-border style="text-align: center;">
+            <ion-button style="width: 50%;" color="success" (click)="carApprove()">Yes, this is my car</ion-button><br>
+            <ion-button color="success">No, this looks wrong</ion-button>
+        </ion-footer>
+    </div>
+</ion-content>

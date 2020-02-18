@@ -1,0 +1,126 @@
+<app-header></app-header>
+<ion-content *ngIf="isVirtual">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input>
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 6: Virtual Inspection</b></span>
+      </ion-label>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-label>
+        <ion-row>
+          <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 13px;"><b>Your progress has
+              been
+              saved and you can return
+              at anytime to complete this process. The virtual
+              inspection requires you to take pictures, video, and
+              other steps to ensure the quality of your vehicle
+              and ensure our security in lending you money.
+              When you’re ready to start, click below.</b>
+          </span>
+        </ion-row>
+      </ion-label>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-button style="width: 60%;" color="success" (click)="startInspection()">Start the Virtual Inspection
+      </ion-button>
+    </ion-footer>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="isPhotoIns">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input> .
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 6: Virtual Inspection (1)</b></span>
+      </ion-label>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-label>
+        <ion-row>
+          <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 13px;"><b>The first step is
+              to take a series of photos. You will
+              be guided through each step and photo.</b>
+          </span>
+        </ion-row>
+        <ion-row>
+          <span class="ion-padding"
+            style="font-weight: bolder; line-height: 17px; font-family: serif; font-size: 15px;"><b>FRONT OF CAR</b>
+          </span>
+        </ion-row>
+        <ion-row>
+          <span class="ion-padding"
+            style="font-weight: bolder; line-height: 17px; font-family: serif; font-size: 15px;">The first photo is
+            the front of your car. Stand about
+            10 feet in front of the car and take a clear, well lit
+            photo. We must be able to clearly see the car and
+            any damage, scratches, etc.
+          </span>
+        </ion-row>
+      </ion-label>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-button style="width: 60%;" color="success" (click)="onTakePhoto()">Take Photo
+      </ion-button>
+      <ion-button (click)="takeSnap()">
+        Take Snap
+      </ion-button>
+      <ion-col col-6 *ngFor="let photo of photos; let id = index">
+        <ion-card class="block">
+          <img [src]="photo" *ngIf="photo" />
+        </ion-card>
+      </ion-col>
+    </ion-footer>
+  </div>
+</ion-content>
+
+
+<ion-content *ngIf="isVideoIns">
+  <div class="ion-padding">
+    <div class="row">
+      <ion-input type="number" max="10"></ion-input> .
+      <app-progress-bar [progress]="loadProgress"></app-progress-bar>
+      <ion-label class="ion-padding">
+        <span><b class="title-default">Step 6: Virtual Inspection (2)</b></span>
+      </ion-label>
+      <ion-row>
+        <ion-label class="ion-padding" style="color: orange;">
+          Video
+        </ion-label>
+      </ion-row>
+    </div>
+    <div class="row" class="ion-padding">
+      <ion-label>
+        <ion-row>
+          <span class="ion-padding" style="line-height: 17px; font-family: serif; font-size: 13px;"><b>inside and out.
+              You want to show us any major
+              damage. Start at the front of your car so we can
+              identify it, then walk with the camera pointed at the
+              drivers door and enter the car while filming. Take a
+              video of the interior of the car, then, while still
+              filming, start the car. Please silence other noise so
+              we can hear the car start clearly. Video should be
+              no more than 5 minutes.</b>
+          </span>
+        </ion-row>
+      </ion-label>
+    </div>
+    <ion-footer no-border style="text-align: center;">
+      <ion-button style="width: 60%;" color="success" (click)="onTakeVideo()">TAKE VIDEO
+      </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
+          {{ file.name }}
+          <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+        </ion-item>
+      </ion-list>
+
+      <video controls autoplay #myvideo>
+      </video>
+    </ion-footer>
+  </div>
+</ion-content>
