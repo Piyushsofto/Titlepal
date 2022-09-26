@@ -33,7 +33,7 @@
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "^2.0.1",
-    "code-push": "^3.0.1",
+    "code-push": "^3.1.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-dialogs": "^2.0.2",
